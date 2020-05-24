@@ -7,6 +7,7 @@ import wawer.kamil.dbservice.model.Quote;
 import wawer.kamil.dbservice.repository.QuotesRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +40,11 @@ public class QuotesServiceImpl implements QuotesService {
     public void deleteQuote(String username) {
         //TODO implement optional as security of list as null
         List<Quote> quotes = quotesRepository.findByUserName(username);
-        quotes.forEach(quotesRepository::delete);
+        if (!quotes.isEmpty()) {
+            quotesRepository.deleteByUserName(username);
+        } else {
+            //TODO implement exception handler
+            throw new NoSuchElementException("No Content");
+        }
     }
 }
