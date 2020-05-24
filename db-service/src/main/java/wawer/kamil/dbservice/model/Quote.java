@@ -18,4 +18,8 @@ public class Quote {
     private String userName;
     private String quote;
 
+    public Quote(String userName, String quote) {
+        this.userName = userName;
+        this.quote = quote;
+    }
 }
