@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wawer.kamil.stockservice.service.StockService;
 import yahoofinance.Stock;
-import yahoofinance.quotes.stock.StockQuote;
 
 import java.util.List;
 
