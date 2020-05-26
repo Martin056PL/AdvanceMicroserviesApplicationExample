@@ -1,7 +1,6 @@
 package wawer.kamil.zuulapigatewayservice.configuration;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
@@ -13,12 +12,13 @@ import java.util.List;
 @Primary
 @EnableAutoConfiguration
 @Component
-public class ProxyApi implements SwaggerResourcesProvider {
+public class SwaggerZuulConfiguration implements SwaggerResourcesProvider {
 
     @Override
-    public List get() {
-        List resources = new ArrayList<>();
-        resources.add(swaggerResource("account-service", "/api/db-service/v2/api-docs", "2.0"));
+    public List<SwaggerResource> get() {
+        List<SwaggerResource> resources = new ArrayList<>();
+        resources.add(swaggerResource("db-service", "/api/db-service/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("stock-service", "/api/stock-service/v2/api-docs", "2.0"));
         return resources;
     }
 
