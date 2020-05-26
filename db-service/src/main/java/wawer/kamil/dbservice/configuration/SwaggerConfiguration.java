@@ -15,7 +15,7 @@ public class SwaggerConfiguration {
     public Docket swaggerApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("wawer.kamil.dbservice.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(new ApiInfoBuilder().version("1.0").title("DB-Service API").description("Documentation db-service API v1.0").build());
